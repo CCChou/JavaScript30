@@ -58,7 +58,27 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 <script>
+  function playSound(e) {
+    // FIXME firefox not support this syntax
+    console.log(e);
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+    if(!audio) return;
 
+    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+    key.classList.add('playing'); // get all classes attr from key and add a new one
+
+    audio.play();
+    audio.currentTime = 0; // if not you will need to wait the audio done
+  }
+
+  function removePlaying(e) {
+    if(e.propertyName !== 'transform') return;
+    e.target.classList.remove('playing');
+  }
+
+  const keys = document.querySelectorAll('.key');
+  keys.forEach(key => key.addEventListener('transitionend', removePlaying));
+  window.addEventListener('keydown', playSound);
 </script>
 
 
