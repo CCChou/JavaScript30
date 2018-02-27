@@ -59,7 +59,6 @@
 
 <script>
   function playSound(e) {
-    // FIXME firefox not support this syntax
     console.log(e);
     const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
     if(!audio) return;
