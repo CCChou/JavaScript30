@@ -88,8 +88,8 @@
     function setDate() {
       const date = new Date();
 
-      const hourDegree = (date.getHours() / 12 * 360) + 90 + (date.getMinutes() /12 / 60 * 360);
-      const minuteDegree = (date.getMinutes() / 60 * 360) + 90 + (date.getSeconds() / 60 /60 * 366);
+      const hourDegree = (date.getHours() / 12 * 360) + 90 + (date.getMinutes() / 12 / 60 * 360);
+      const minuteDegree = (date.getMinutes() / 60 * 360) + 90 + (date.getSeconds() / 60 / 60 * 360);
       const secondDegree = (date.getSeconds() / 60 * 360) + 90;
       
       secondHand.style.transform = `rotate(${secondDegree}deg)`;
