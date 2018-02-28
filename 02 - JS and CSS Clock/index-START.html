@@ -67,21 +67,29 @@
       transition: all 0.05s;
     }
 
+    .hour-hand {
+      background-color: white;
+    }
+
+    .minute-hand {
+      background-color: gray;
+    }
+
+    .second-hand {  
+      background-color: gray;
+    }
+
   </style>
   <script>
     const hourHand = document.querySelector('.hour-hand');
     const minuteHand = document.querySelector('.minute-hand');
     const secondHand = document.querySelector('.second-hand');
 
-    hourHand.style.background = 'red';
-    minuteHand.style.background = 'green';
-    secondHand.style.background = 'gray';
-
     function setDate() {
       const date = new Date();
 
-      const hourDegree = (date.getHours() / 12 * 360) + 90;
-      const minuteDegree = (date.getMinutes() / 60 * 360) + 90;
+      const hourDegree = (date.getHours() / 12 * 360) + 90 + (date.getMinutes() /12 / 60 * 360);
+      const minuteDegree = (date.getMinutes() / 60 * 360) + 90 + (date.getSeconds() / 60 /60 * 366);
       const secondDegree = (date.getSeconds() / 60 * 360) + 90;
       
       secondHand.style.transform = `rotate(${secondDegree}deg)`;
