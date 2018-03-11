@@ -99,6 +99,34 @@
   </div>
 
 <script>
+  const items = document.querySelectorAll('.inbox input[type="checkbox"]');
+  let lastChecked;
+  let inBetween = false;
+
+  function multiChecked(e) {
+    if(e.shiftKey && this.checked) {
+      items.forEach(item => {
+        if(item === lastChecked && !inBetween) {
+         inBetween = true;
+        } else if(item === lastChecked && inBetween) {
+          inBetween = false;
+        }
+
+        if(item === this && !inBetween) {
+         inBetween = true;
+        } else if(item === this && inBetween) {
+          inBetween = false;
+        }
+
+        if(inBetween) {
+          item.checked = true;
+        }
+      });
+    }
+    lastChecked = this;
+  }
+
+  items.forEach(item => item.addEventListener('click', multiChecked));
 </script>
 </body>
 </html>
