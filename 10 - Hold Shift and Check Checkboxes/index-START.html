@@ -106,16 +106,8 @@
   function multiChecked(e) {
     if(e.shiftKey && this.checked) {
       items.forEach(item => {
-        if(item === lastChecked && !inBetween) {
-         inBetween = true;
-        } else if(item === lastChecked && inBetween) {
-          inBetween = false;
-        }
-
-        if(item === this && !inBetween) {
-         inBetween = true;
-        } else if(item === this && inBetween) {
-          inBetween = false;
+        if(item === this || item === lastChecked) {
+          inBetween = !inBetween;
         }
 
         if(inBetween) {
@@ -123,6 +115,7 @@
         }
       });
     }
+    
     lastChecked = this;
   }
 
