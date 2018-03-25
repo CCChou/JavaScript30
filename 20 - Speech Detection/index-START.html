@@ -11,8 +11,18 @@
 
 <script>
   window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  const recognition = new SpeechRecognition();
+  recognition.interimResults = true;
 
+  let p = document.createElement('p');
 
+  function record(e) {
+    console.log(e);
+  }
+
+  recognition.addEventListener('result', record); 
+  
+  recognition.start();
 </script>
 
 
