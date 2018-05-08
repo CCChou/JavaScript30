@@ -1,6 +1,6 @@
 # Fork JavaScript 30 For Practice
 
-practice in branch develop
+practice in branch practice
 
 # Reference
 * [Javascript30](https://javascript30.com/)
